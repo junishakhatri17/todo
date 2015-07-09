@@ -1,0 +1,68 @@
+   
+
+.header{
+	font-size: 36px;
+  left: 430px;
+  position: relative;
+  width: 250px;
+}
+.well .wellnew{
+
+
+  background-color: #BED5F4;
+  border: 2px solid;
+  border-color: #6CA1F4;
+  border-radius: 5px;
+
+
+}
+.taskList .well .wellnew
+{
+
+
+  background-color: #BED5F4;
+  border: 2px solid;
+  border-color: #6CA1F4;
+  border-radius: 5px;
+
+
+}
+
+ #dueDate{
+	  width: 48%;
+  top: 5px;
+  position: relative;
+}
+
+.well #taskItem1{
+	background-color: #CAFFDF;
+	overflow-wrap: break-word;
+	font-family: cursive;
+}
+
+
+.newcontainer{
+
+    height: 400px;
+    overflow-y: auto;}
+
+
+
+input[type=checkbox]:checked ~ span {
+color:red; text-decoration: line-through;}
+input[type=checkbox]:checked ~ strong {
+color:red; text-decoration: line-through;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

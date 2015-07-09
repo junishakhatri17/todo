@@ -1,40 +1,65 @@
 <section>
+<head>
+
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Bootstrap Login Form</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		
+		<link rel="stylesheet" href="bootstrap.css">
+	    <link rel="stylesheet" href="mystyle.css">
+		
+		
+		
+	</head>
     <div ng-controller="registerController">
+	<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+	
+	
+       
         <form name="form" novalidate>
             <fieldset>
-                <legend>Register</legend>
-                <div>
-                    Name : <input type="text" name="userName" ng-model="user.name" required>
+                <h1 class="text-center"><legend>Sign Up for free</legend></h1>
+                <form class="form col-md-12 center-block">
+               
+				<div class="form-group">
+                    Name : <input type="text" class="form-control input-lg" placeholder="Your name please!" name="userName" ng-model="user.name" required>
                     <span ng-show="form.userName.$dirty && form.userName.$invalid">
                         <span ng-show="form.userName.$error.required">name is required.</span>
                     </span>
                 </div>
                 
-                <div>
-                    Email : <input type="email" name="userEmail" ng-model="user.email" required>
+                <div class="form-group">
+                    Email : <input type="email" class="form-control input-lg" placeholder="Your email please" name="userEmail" ng-model="user.email" required>
                     <span ng-show="form.userEmail.$dirty && form.userEmail.$invalid">
                         <span ng-show="form.userEmail.$error.required">email is required.</span>
                         <span ng-show="form.userEmail.$error.email">email is invalid.</span>
                     </span>
                 </div>
 
-                <div>
-                    Password : <input type="password" name="userPassword" ng-model="user.password" required>
+                <div class="form-group">
+                    Password : <input type="password" class="form-control input-lg" placeholder="Your Password here" name="userPassword" ng-model="user.password" required>
                     <span ng-show="form.userPassword.$dirty && form.userPassword.$invalid">
                         <span ng-show="form.userEmail.$error.required">password is required.</span>
                     </span>
                 </div>
                 
-<!--
-                <div>
-                    Confirm Password : <input type="password" name="confirmPassword" ng-model="user.confirmPassword" compare-to="user.password" required>
+
+                <div class="form-group">
+                    Confirm Password : <input type="password" class="form-control input-lg" placeholder="Confirm your password" name="confirmPassword" ng-model="user.confirmPassword" compare-to="user.password" required>
                     <span ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
                         <span ng-show="form.confirmPassword.$error.required">password confirmation is required.</span>
                     </span>
                 </div>
--->
 
-                <input type="button" value="Register" ng-click="register()">
+
+                <input type="button" class="btn btn-success" value="Register" ng-click="register()">
             </fieldset>
         </form>        
     </div>
