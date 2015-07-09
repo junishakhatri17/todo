@@ -1,0 +1,46 @@
+<section>
+    <div ng-controller="taskController">
+        <div>
+            Hi {{user.name}}
+            <button ng-click="logout()">Logout</button>
+        </div>
+        <div>
+            <form name="form">
+                <legend>Add Task</legend>
+                <div>
+                    Description : 
+                    <textarea ng-model="newTask.description"></textarea>                    
+                </div>                
+                <div>
+                    Title : <input type="text" name="title" ng-model="newTask.title" required>
+                    <span ng-show="form.title.$dirty && form.title.$invalid">
+                        <span ng-show="form.title.$error.required">title is required.</span>
+                    </span>
+                </div>
+
+                <div>
+                    Deadline : <input type="date" name="deadline" ng-model="newTask.deadline" required>
+                    <span ng-show="form.deadline.$dirty && form.deadline.$invalid">
+                        <span ng-show="form.deadline.$error.required">date is required.</span>
+                    </span>
+                </div>
+                
+                <button ng-click="addNew()" ng-disabled="!(newTask.title)">Add task</button>
+            </form>
+        </div>
+        <div>
+            <button ng-click="deleteTask()">Delete Tasks</button>
+        </div>
+        <div>
+            <ol>
+                <li ng-repeat="task in tasks track by $index">
+                    <input type="checkbox" ng-model="task.selected">
+                    <input type="checkbox" ng-model="task.complete" ng-change="taskUpdate()">
+                    {{task.deadline | date : 'mediumDate'}}
+                    <span>{{task.title}}</span>
+                    <div>{{task.description}}</div>
+                </li>
+            </ol>
+        </div>
+    </div>    
+</section>

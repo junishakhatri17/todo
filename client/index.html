@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todo">
+    <head>
+        <meta charset="utf-8">
+        <title>TO DO server</title>
+    </head>
+    <body ng-controller="MainControl">        
+        <header>
+            <h1>ToDo</h1>
+<!--            <a ui-sref="login" ui-sref-active="active">Log in</a>-->
+        </header>
+        
+        <main ui-view></main>
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/lb-services.js"></script>
+    <script src="js/controllers/auth.js"></script>
+    <script src="js/controllers/todo.js"></script>
+</html>

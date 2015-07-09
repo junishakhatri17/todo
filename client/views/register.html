@@ -1,0 +1,41 @@
+<section>
+    <div ng-controller="registerController">
+        <form name="form" novalidate>
+            <fieldset>
+                <legend>Register</legend>
+                <div>
+                    Name : <input type="text" name="userName" ng-model="user.name" required>
+                    <span ng-show="form.userName.$dirty && form.userName.$invalid">
+                        <span ng-show="form.userName.$error.required">name is required.</span>
+                    </span>
+                </div>
+                
+                <div>
+                    Email : <input type="email" name="userEmail" ng-model="user.email" required>
+                    <span ng-show="form.userEmail.$dirty && form.userEmail.$invalid">
+                        <span ng-show="form.userEmail.$error.required">email is required.</span>
+                        <span ng-show="form.userEmail.$error.email">email is invalid.</span>
+                    </span>
+                </div>
+
+                <div>
+                    Password : <input type="password" name="userPassword" ng-model="user.password" required>
+                    <span ng-show="form.userPassword.$dirty && form.userPassword.$invalid">
+                        <span ng-show="form.userEmail.$error.required">password is required.</span>
+                    </span>
+                </div>
+                
+<!--
+                <div>
+                    Confirm Password : <input type="password" name="confirmPassword" ng-model="user.confirmPassword" compare-to="user.password" required>
+                    <span ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
+                        <span ng-show="form.confirmPassword.$error.required">password confirmation is required.</span>
+                    </span>
+                </div>
+-->
+
+                <input type="button" value="Register" ng-click="register()">
+            </fieldset>
+        </form>        
+    </div>
+</section>

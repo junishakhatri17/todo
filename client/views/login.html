@@ -1,0 +1,27 @@
+<section>
+    <div ng-controller="loginController">
+        <form name="form" novalidate>
+            <fieldset>
+                <legend>Login</legend>
+                <div>
+                    Email : <input type="email" name="userEmail" ng-model="user.email" required>
+                    <span ng-show="form.userEmail.$dirty && form.userEmail.$invalid">
+                        <span ng-show="form.userEmail.$error.required">email is required.</span>
+                        <span ng-show="form.userEmail.$error.email">email is invalid.</span>
+                    </span>
+                </div>
+
+                <div>
+                    Password : <input type="password" name="userPassword" ng-model="user.password" required>
+                    <span ng-show="form.userPassword.$dirty && form.userPassword.$invalid">
+                        <span ng-show="form.userEmail.$error.required">password is required.</span>
+                    </span>
+                </div>
+
+                <input type="button" value="Login" ng-click="login()" ng-disabled="form.userEmail.$invalid ||  
+                                                  form.userPassword.$invalid">
+                <input type="button" value="Register" ng-click="register()">
+            </fieldset>
+        </form>        
+    </div>
+</section>
