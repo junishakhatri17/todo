@@ -1,27 +1,59 @@
 <section>
-    <div ng-controller="loginController">
-        <form name="form" novalidate>
+<div ng-controller="loginController">
+<head>
+
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Bootstrap Login Form</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		
+		<link rel="stylesheet" href="bootstrap.css">
+	    <link rel="stylesheet" href="mystyle.css">
+		
+		
+		
+	</head>
+ 
+    
+	
+	<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+	
+	
+       <form name="form" novalidate>
             <fieldset>
-                <legend>Login</legend>
-                <div>
-                    Email : <input type="email" name="userEmail" ng-model="user.email" required>
+               <h1 class="text-center"><legend>Please Sign in to Continue</legend></h1>
+                <form class="form col-md-12 center-block">
+               <div class="form-group">
+                    Email : <input type="email" class="form-control input-lg" name="userEmail" placeholder="Your Email Please!" ng-model="user.email" required>
                     <span ng-show="form.userEmail.$dirty && form.userEmail.$invalid">
                         <span ng-show="form.userEmail.$error.required">email is required.</span>
                         <span ng-show="form.userEmail.$error.email">email is invalid.</span>
                     </span>
-                </div>
-
                 <div>
-                    Password : <input type="password" name="userPassword" ng-model="user.password" required>
+                      
+                <div class="form-group">
+                    Password : <input type="password" class="form-control input-lg" name="userPassword" placeholder="Enter your password" ng-model="user.password" required>
                     <span ng-show="form.userPassword.$dirty && form.userPassword.$invalid">
                         <span ng-show="form.userEmail.$error.required">password is required.</span>
                     </span>
                 </div>
+                <div class="form-group">
+                <input class="btn btn-primary btn-lg active" type="submit"  value="Login" ng-click="login()" ng-disabled="form.userEmail.$invalid ||  
+                                                  form.userPassword.$invalid"/>
+				</div>	
 
-                <input type="button" value="Login" ng-click="login()" ng-disabled="form.userEmail.$invalid ||  
-                                                  form.userPassword.$invalid">
-                <input type="button" value="Register" ng-click="register()">
-            </fieldset>
+               	 <div class="form-group">			
+                <input class="btn btn-default btn-lg" type="submit"  value="Register" ng-click="register()"/>
+                </div>
+			
+			
+			</fieldset>
         </form>        
     </div>
 </section>
