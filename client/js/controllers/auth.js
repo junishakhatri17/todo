@@ -47,5 +47,9 @@ todo.controller('loginController', ['$state', 'Customer', '$rootScope', '$scope'
             
             // error handling
         });  
-    };
+    };    
+          
+    $scope.cancel = function(){
+        $state.go('login');      
+    }    
 }]);

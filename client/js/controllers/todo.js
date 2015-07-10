@@ -41,8 +41,18 @@ todo.controller('taskController', ['$state', 'Customer', 'Task', '$rootScope', '
         .$promise
         .then(function(response) {
             console.log('addNew', response);
+            $scope.newTask = [];
+            $scope.form.title.$dirty = false;
         }, function(reason) {
             console.log('addNew', reason);
         });
     }
+        
+    $scope.cancel = function(){
+        console.log($state);
+        $state.go('login');      
+    }
+    
+    
+    
 }]);
