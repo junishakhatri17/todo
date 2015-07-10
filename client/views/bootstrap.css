@@ -62,7 +62,7 @@ dfn {
   font-style: italic;
 }
 h1 {
-  
+  margin: .67em 0;
   font-size: 2em;
 }
 mark {
@@ -3353,9 +3353,7 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-block {
   display: block;
-  width: 12%;
-  height: 12%;
-  padding: 17px;
+  width: 100%;
 }
 .btn-block + .btn-block {
   margin-top: 5px;
@@ -5778,8 +5776,8 @@ button.close {
   opacity: .5;
 }
 .modal-header {
-  min-height: 74.428571px;
-  padding: 13px;
+  min-height: 16.42857143px;
+  padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
 .modal-header .close {

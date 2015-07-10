@@ -10,7 +10,7 @@
        <form name="form" novalidate>
             <fieldset>
                <h1 class="text-center"><legend>Please Sign in to Continue</legend></h1>
-                <form class="form col-md-12 center-block">
+                
                <div class="form-group">
                     Email : <input type="email" class="form-control input-lg" name="userEmail" placeholder="Your Email Please!" ng-model="user.email" required>
                     <span ng-show="form.userEmail.$dirty && form.userEmail.$invalid">
@@ -25,15 +25,14 @@
                         <span ng-show="form.userEmail.$error.required">password is required.</span>
                     </span>
                 </div>
-                <div class="form-group">
+				
+				<div>
+               
                 <input class="btn btn-primary btn-lg active" type="submit"  value="Login" ng-click="login()" ng-disabled="form.userEmail.$invalid ||  
-                                                  form.userPassword.$invalid"/>
-				</div>	
-
-               	 <div class="form-group">			
-                <input class="btn btn-default btn-lg" type="submit"  value="Register" ng-click="register()"/>
-                </div>
-			
+                                                  form.userPassword.$invalid"/>	
+                <input style="position:float-right" class="btn btn-default btn-lg" type="submit"  value="Register" ng-click="register()"/>
+               
+			  </div>
 			
 			</fieldset>
         </form>        

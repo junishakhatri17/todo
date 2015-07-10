@@ -1,46 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="mystyle.css">
+</head>
 <section>
-    <div ng-controller="taskController">
+	<div class="container well">
+    <div ng-controller="taskController" >
         <div>
             Hi {{user.name}}
-            <button ng-click="logout()">Logout</button>
+            <button class="btn btn-danger " id="logoutbtn" ng-click="logout()" style = "float:right">Logout</button>
         </div>
         <div>
-            <form name="form">
+            <form name="form" class="well wellnew form-group">
                 <legend>Add Task</legend>
                 <div>
-                    Description : 
-                    <textarea ng-model="newTask.description"></textarea>                    
+                    <label for="description">Description</label>
+                    <textarea cols="50" id="description" class="taskDesc form-control"
+								placeholder="What do you need to do?" ng-model="newTask.description"></textarea>                    
                 </div>                
-                <div>
-                    Title : <input type="text" name="title" ng-model="newTask.title" required>
+                <div class="col-md-6">
+                    <label for="title">Title </label>
+					<input type="text" id="title" class="taskTitle form-control" maxlength="70" placeholder="Add title" name="title" style="font-family:cursive;" ng-model="newTask.title" required>
+					
                     <span ng-show="form.title.$dirty && form.title.$invalid">
                         <span ng-show="form.title.$error.required">title is required.</span>
                     </span>
                 </div>
 
-                <div>
-                    Deadline : <input type="date" name="deadline" ng-model="newTask.deadline" required>
+                <div class="col-md-6">
+						<label for="dueDate" style="top: 5px; position: relative;">Due Date</label>
+                    <input type="date" name="deadline" id="dueDate" class="taskDate form-control" ng-model="newTask.deadline" required>
                     <span ng-show="form.deadline.$dirty && form.deadline.$invalid">
                         <span ng-show="form.deadline.$error.required">date is required.</span>
                     </span>
                 </div>
                 
-                <button ng-click="addNew()" ng-disabled="!(newTask.title)">Add task</button>
+				<div class="forbutton">
+                <button class="taskAdd btn btn-success " ng-click="addNew()" ng-disabled="!(newTask.title)">
+				 <i class="fa fa-plus icon"></i>
+				 Add task</button>
+				 <button class="Cancel btn btn-success " data-ng-click="Cancel() ">
+								Cancel
+							</button>
+				</div>
             </form>
         </div>
         <div>
-            <button ng-click="deleteTask()">Delete Tasks</button>
+            <button class="taskDelete btn btn-danger " ng-click="deleteTask()"> <i class="fa fa-trash-o icon"></i> Delete Tasks</button>
         </div>
-        <div>
-            <ol>
-                <li ng-repeat="task in tasks track by $index">
-                    <input type="checkbox" ng-model="task.selected">
-                    <input type="checkbox" ng-model="task.complete" ng-change="taskUpdate()">
-                    {{task.deadline | date : 'mediumDate'}}
-                    <span>{{task.title}}</span>
-                    <div>{{task.description}}</div>
+		
+		
+		        <div class=" newcontainer">
+            <ol class="taskList well wellnew">
+                <li class="taskItem well" id="taskItem1" ng-repeat="task in tasks track by $index">
+                    <input type="checkbox" class="taskCheckbox" ng-model="task.selected">
+                    <input type="checkbox" class="taskCheckbox" ng-model="task.complete" ng-change="taskUpdate()">
+					<strong class=""> <i class="fa fa-calendar"></i> {{task.deadline | date : 'mediumDate'}} </strong>
+                    <span class="" style="font-weight:600">{{task.title}}</span>
+                    <div class="">{{task.description}}</div>
                 </li>
             </ol>
         </div>
-    </div>    
+		</div>
+    </div>   
 </section>
+</html>
