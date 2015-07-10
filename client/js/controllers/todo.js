@@ -49,6 +49,19 @@ todo.controller('taskController', ['$state', 'Customer', 'Task', '$rootScope', '
             console.log('addNew', reason);
         });
     }
+    
+    $scope.getTasks = function() {   
+        User.tasks({id:$rootScope.user.id},{access_token:$rootScope.user.token})
+        .$promise
+        .then(function(response) {
+            console.log('getTasks', response);
+            $scope.tasks = response;
+        }, function(reason) {
+            console.log('getTasks', reason);
+        });
+    }
+    
+    $scope.getTasks();
       
     $scope.deleteTask = function(){
         

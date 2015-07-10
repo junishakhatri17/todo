@@ -45,7 +45,7 @@ var todo = angular
   }])
 .run(['$cookies', '$rootScope', '$state', function($cookies, $rootScope, $state) {
     
-    $rootScope.user = $cookies.get('user');
+    $rootScope.user = JSON.parse($cookies.get('user'));
     
     $rootScope.$on('$stateChangeStart', function(event, next) {
         // redirect to login page if not logged in
