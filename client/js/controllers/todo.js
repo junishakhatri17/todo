@@ -1,4 +1,4 @@
-todo.controller('taskController', ['$state', 'Customer', 'Task', '$rootScope', '$scope', function($state, User, Task, $rootScope, $scope) {
+todo.controller('taskController', ['$state', 'Customer', 'Task', '$rootScope', '$scope', '$cookies', function($state, User, Task, $rootScope, $scope, $cookies) {
     
     $scope.tasks = [];
     
@@ -18,6 +18,8 @@ todo.controller('taskController', ['$state', 'Customer', 'Task', '$rootScope', '
         .then(function(response) {
             console.log('logout', response);
             $rootScope.user = null;
+            $cookies.remove('user');
+            
             $state.go('login');
         }, function(reason) {
             console.log('logout', reason);

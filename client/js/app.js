@@ -17,6 +17,7 @@ todo.run(function($state) {
     });*/
 var todo = angular
   .module('todo', [
+    'ngCookies',
     'ui.router',
     'lbServices'
   ])
@@ -42,14 +43,18 @@ var todo = angular
         });
     $urlRouterProvider.otherwise('login');
   }])
-//.run(['$rootScope', '$state', function($rootScope, $state) {
-//  $rootScope.$on('$stateChangeStart', function(event, next) {
-//      // redirect to login page if not logged in
-//      if (next.authenticate && !$rootScope.currentUser) {
-//          event.preventDefault(); //prevent current page from loading
-//          $state.go('login');
-//      }
-//  })
+.run(['$cookies', '$rootScope', '$state', function($cookies, $rootScope, $state) {
+    
+    $rootScope.user = $cookies.get('user');
+    
+    $rootScope.$on('$stateChangeStart', function(event, next) {
+        // redirect to login page if not logged in
+        if (next.authenticate && !$rootScope.user) {
+            event.preventDefault(); //prevent current page from loading
+            $state.go('login');
+        }
+    })
+}])
 .controller("MainControl", ['$state', function($state, $scope) {
     console.log("runs");
     $state.go('login');

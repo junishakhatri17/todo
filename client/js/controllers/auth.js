@@ -1,4 +1,4 @@
-todo.controller('loginController', ['$state', 'Customer', '$rootScope', '$scope', function($state, User, $rootScope, $scope) {
+todo.controller('loginController', ['$cookies', '$state', 'Customer', '$rootScope', '$scope', function($cookies, $state, User, $rootScope, $scope) {
     $scope.register = function() {
         console.log('register');
         $state.go('register');
@@ -18,6 +18,8 @@ todo.controller('loginController', ['$state', 'Customer', '$rootScope', '$scope'
                  id : response.userId,
                  name : response.user.name
              };
+             
+             $cookies.put('user', JSON.stringify($rootScope.user));
              
              $state.go('todo');
          },
