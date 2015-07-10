@@ -25,17 +25,17 @@ var todo = angular
       console.log('config');
     $stateProvider
         .state('login', {
-                url: '/',
+                url: '/login',
                 templateUrl: 'views/login.html',
                 controller: 'loginController'
           })
         .state('register', {
-                url: '/',
+                url: '/register',
                 templateUrl: 'views/register.html',
                 controller: 'registerController'
         })
         .state('todo', {
-                url: '/',
+                url: '/todo',
                 templateUrl: 'views/todo.html',
                 controller: 'taskController',
                 authenticate: true
