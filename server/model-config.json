@@ -34,11 +34,11 @@
     "public": false
   },
   "Customer": {
-    "dataSource": "mySql",
+    "dataSource": "db",
     "public": true
   },
   "Task": {
-    "dataSource": "mySql",
+    "dataSource": "db",
     "public": true
   }
 }

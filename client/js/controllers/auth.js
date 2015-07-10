@@ -49,5 +49,9 @@ todo.controller('loginController', ['$cookies', '$state', 'Customer', '$rootScop
             
             // error handling
         });  
-    };
+    };    
+          
+    $scope.cancel = function(){
+        $state.go('login');      
+    }    
 }]);
