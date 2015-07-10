@@ -4,7 +4,7 @@
     "connector": "memory"
   },
   "mySql": {
-    "host": "localhost",
+    "host": "10.11.4.97",
     "port": 3306,
     "database": "todo",
     "username": "root",

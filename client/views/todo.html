@@ -24,7 +24,7 @@
                     </span>
                 </div>
                 
-                <button ng-click="addNew()" ng-disabled="!(newTask.title)">Add task</button>
+                <button ng-click="addNew()" ng-disabled="!(newTask.title) || (form.deadline.$dirty && form.deadline.$invalid)">Add task</button>
             </form>
         </div>
         <div>
