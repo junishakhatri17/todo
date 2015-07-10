@@ -29,8 +29,8 @@
 }
 
  #dueDate{
-	  width: 48%;
-  top: 5px;
+  width: 48%;
+  
   position: relative;
 }
 
@@ -48,11 +48,40 @@
 
 
 
-input[type=checkbox]:checked ~ span {
-color:red; text-decoration: line-through;}
-input[type=checkbox]:checked ~ strong {
-color:red; text-decoration: line-through;}
+.taskCheckbox {
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+  cursor: pointer;
+  width: 19px;
+  height: 19px;
+  vertical-align: middle;
+}
 
+.taskCheckbox:focus { outline: none; }
+
+.taskCheckbox:before,
+.taskCheckbox:checked:before {
+  font-family: 'FontAwesome';
+  color: #444;
+  font-size: 20px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.taskCheckbox:before { content: '\f096'; }
+
+.taskCheckbox:checked:before {
+  content: '\f14a';
+  color: #379482;
+}
+
+.complete-true {
+  text-decoration: line-through;
+  color: #E84059;
+}
 
 
 

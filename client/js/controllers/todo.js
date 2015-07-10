@@ -49,12 +49,18 @@ todo.controller('taskController', ['$state', 'Customer', 'Task', '$rootScope', '
             console.log('addNew', reason);
         });
     }
+      
+    $scope.deleteTask = function(){
         
+        for(task in $scope.tasks){
+        console.log($scope.tasks);
+        }
+    }
+    
+    
     $scope.cancel = function(){
         console.log($state);
         $state.go('login');      
     }
-    
-    
-    
+      
 }]);
