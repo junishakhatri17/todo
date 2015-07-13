@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="mystyle.css">
 </head>
 <section>
+<<<<<<< HEAD
 	<div class="container well">
     <div ng-controller="taskController" >
         <div>
@@ -59,11 +60,76 @@
                     <input type="checkbox" class="taskCheckbox" ng-model="task.complete" ng-change="taskUpdate()">
 					<strong class=""> <i class="fa fa-calendar"></i> {{task.deadline | date : 'mediumDate'}} </strong>
                     <span class="" style="font-weight:600">{{task.title}}</span>
+=======
+    <div class="container well">
+        <div ng-controller="taskController" >
+            <span class = "logoutbtn">
+            <button class="btn btn-danger " id = "logoutbtn" ng-click="logout()" style="float:right">Logout</button></span>
+            <div>
+                Hi {{user.name}}
+                <blockquote>
+                <p>To-do List App</p>
+                <footer>Add your Task</footer>
+                </blockquote>
+
+            </div>
+                <div>            
+                    <form name="form" class="well wellnew form-group">
+
+                        <div>
+                            <label for="description">Description</label>
+                            <textarea cols="50" id="description" class="taskDesc form-control"
+                                        placeholder="What do you need to do?" ng-model="newTask.description"></textarea>                    
+                        </div>
+                        <div class="row">
+                        <div class="col-md-6">
+                            <label for="title">Title </label>
+                            <input type="text" id="title" class="taskTitle form-control" maxlength="70" placeholder="Add title" name="title" style="font-family:cursive;" ng-model="newTask.title" required>
+
+                            <span ng-show="form.title.$dirty && form.title.$invalid">
+                                <span ng-show="form.title.$error.required">title is required.</span>
+                            </span>
+                        </div>
+
+                        <div class="col-md-6">
+                                <label for="dueDate" style="top: 5px; position: relative;">Due Date</label>
+                            <input type="date" name="deadline" id="dueDate" class="taskDate form-control" ng-model="newTask.deadline" required>
+                            <span ng-show="form.deadline.$error.date"> Date invalid.</span>
+                            </span>
+                        </div>
+                        </div>
+                        <div class="forbutton">
+                        <button class="taskAdd btn btn-success " ng-click="addNew()" ng-disabled="!(newTask.title) || form.deadline.$error.date">
+                         <i class="fa fa-plus icon"></i>
+                         Add task</button>
+
+                        </div>
+                    </form>
+                </div>
+            <div>
+                <button class="taskDelete btn btn-danger " ng-click="deleteTask()"> <i class="fa fa-trash-o icon"></i> Delete Tasks</button>
+            </div>
+        
+        
+            <div class=" newcontainer">
+            <ol class="taskList well wellnew">
+                <li class="taskItem well" id="taskItem1" ng-repeat="task in tasks track by $index">
+                    <input type="checkbox"  ng-model="task.selected">
+                    <input type="checkbox" class="taskCheckbox" ng-model="task.completed" ng-change="taskUpdate()">
+                    <strong class="complete-{{task.completed}}"><i class="fa fa-calendar"></i> {{task.deadline | date :                                         'mediumDate'}} </strong>
+                    <span class="complete-{{task.completed}}" style="font-weight:600">{{task.title}}</span>
+>>>>>>> f07d637433f7da31a1963ee4d13c37119d8143ab
                     <div class="">{{task.description}}</div>
                 </li>
             </ol>
         </div>
+<<<<<<< HEAD
 		</div>
     </div>   
 </section>
 </html>
+=======
+        </div>
+    </div>   
+</section>
+>>>>>>> f07d637433f7da31a1963ee4d13c37119d8143ab

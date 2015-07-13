@@ -17,6 +17,7 @@ todo.run(function($state) {
     });*/
 var todo = angular
   .module('todo', [
+    'ngCookies',
     'ui.router',
     'lbServices'
   ])
@@ -25,31 +26,35 @@ var todo = angular
       console.log('config');
     $stateProvider
         .state('login', {
-                url: '/',
+                url: '/login',
                 templateUrl: 'views/login.html',
                 controller: 'loginController'
           })
         .state('register', {
-                url: '/',
+                url: '/register',
                 templateUrl: 'views/register.html',
                 controller: 'registerController'
         })
         .state('todo', {
-                url: '/',
+                url: '/todo',
                 templateUrl: 'views/todo.html',
                 controller: 'taskController',
                 authenticate: true
         });
     $urlRouterProvider.otherwise('login');
   }])
-//.run(['$rootScope', '$state', function($rootScope, $state) {
-//  $rootScope.$on('$stateChangeStart', function(event, next) {
-//      // redirect to login page if not logged in
-//      if (next.authenticate && !$rootScope.currentUser) {
-//          event.preventDefault(); //prevent current page from loading
-//          $state.go('login');
-//      }
-//  })
+.run(['$cookies', '$rootScope', '$state', function($cookies, $rootScope, $state) {
+    
+    $rootScope.user = JSON.parse($cookies.get('user'));
+    
+    $rootScope.$on('$stateChangeStart', function(event, next) {
+        // redirect to login page if not logged in
+        if (next.authenticate && !$rootScope.user) {
+            event.preventDefault(); //prevent current page from loading
+            $state.go('login');
+        }
+    })
+}])
 .controller("MainControl", ['$state', function($state, $scope) {
     console.log("runs");
     $state.go('login');
